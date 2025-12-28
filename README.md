@@ -2,8 +2,15 @@
 
 A beginner-friendly open-source tool that explains code in simple language.
 
+## Repository
+https://github.com/harinandsindukumar/explain-this-code
+
 ## Author
 Harinand Sindukumar (harinandsindukumarkg@gmail.com)
+
+GitHub: https://github.com/harinandsindukumar/
+
+Support me: https://buymeacoffee.com/harinandsindukumar
 
 ## Who is this for?
 - Students
