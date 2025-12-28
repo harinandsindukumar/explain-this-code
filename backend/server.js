@@ -13,54 +13,43 @@ app.post("/explain", async (req, res) => {
   const { code, language } = req.body;
 
   const prompt = `
-You are a patient programming teacher. Explain the following ${language} code for a beginner student. Use very simple language. Explain WHY each part exists. Return ONLY valid JSON with: summary, line_by_line, common_mistakes, beginner_tip. Code: ${code}`;
+You are a patient programming teacher.
+
+Explain the following code for a beginner student.
+Use very simple language.
+Explain WHY each part exists.
+
+Return ONLY valid JSON with:
+- summary
+- line_by_line
+- common_mistakes
+- beginner_tip
+
+Code language: ${language}
+
+Code:
+${code}
+`;
 
   try {
-    const response = await fetch(
-      process.env.API_URL,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [{ text: prompt }]
-            }
-          ],
-          generationConfig: {
-            responseMimeType: "application/json"
-          }
-        })
-      }
-    );
+    const response = await fetch(process.env.API_URL, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: process.env.MODEL_NAME,
+        messages: [{ role: "user", content: prompt }],
+        temperature: 0.7
+      })
+    });
 
     const data = await response.json();
     res.json(data);
   } catch (error) {
     console.error("API Error:", error);
     res.status(500).json({ error: "Failed to get explanation from AI" });
-  }
-});
-
-app.get("/models", async (req, res) => {
-  try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models?key=${process.env.API_KEY}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    );
-
-    const data = await response.json();
-    res.json(data);
-  } catch (error) {
-    console.error("API Error:", error);
-    res.status(500).json({ error: "Failed to get models list from AI" });
   }
 });
 
