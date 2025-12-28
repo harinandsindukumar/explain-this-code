@@ -1,0 +1,23 @@
+{
+  "name": "explain-this-code",
+  "version": "1.0.0",
+  "description": "A beginner-friendly open-source tool that explains code in simple language.",
+  "main": "test-models.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harinandsindukumar/explain-this-code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harinandsindukumar/explain-this-code/issues"
+  },
+  "homepage": "https://github.com/harinandsindukumar/explain-this-code#readme",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
