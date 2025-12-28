@@ -17,7 +17,7 @@ You are a patient programming teacher. Explain the following ${language} code fo
 
   try {
     const response = await fetch(
-      `${process.env.API_URL}?key=${process.env.API_KEY}`,
+      process.env.API_URL,
       {
         method: "POST",
         headers: {
