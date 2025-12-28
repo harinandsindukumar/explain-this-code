@@ -32,18 +32,22 @@ ${code}
 `;
 
   try {
-    const response = await fetch(process.env.API_URL, {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${process.env.API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: process.env.MODEL_NAME,
-        messages: [{ role: "user", content: prompt }],
-        temperature: 0.7
-      })
-    });
+    const response = await fetch(
+      `${process.env.API_URL}&key=${process.env.API_KEY}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [{ text: prompt }]
+            }
+          ]
+        })
+      }
+    );
 
     const data = await response.json();
     res.json(data);
