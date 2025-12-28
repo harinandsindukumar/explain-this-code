@@ -5,6 +5,11 @@ A beginner-friendly open-source tool that explains code in simple language.
 ## Repository
 https://github.com/harinandsindukumar/explain-this-code
 
+## Tech Stack
+- Backend: Node.js with Express
+- Frontend: HTML, CSS, JavaScript
+- API: External AI model integration
+
 ## Author
 Harinand Sindukumar (harinandsindukumarkg@gmail.com)
 
