@@ -13,23 +13,7 @@ app.post("/explain", async (req, res) => {
   const { code, language } = req.body;
 
   const prompt = `
-You are a patient programming teacher.
-
-Explain the following code for a beginner student.
-Use very simple language.
-Explain WHY each part exists.
-
-Return ONLY valid JSON with:
-- summary
-- line_by_line
-- common_mistakes
-- beginner_tip
-
-Code language: ${language}
-
-Code:
-${code}
-`;
+You are a patient programming teacher. Explain the following ${language} code for a beginner student. Use very simple language. Explain WHY each part exists. Return ONLY valid JSON with: summary, line_by_line, common_mistakes, beginner_tip. Code: ${code}`;
 
   try {
     const response = await fetch(
