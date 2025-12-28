@@ -11,6 +11,12 @@ You can help by:
 
 Be kind and beginner-friendly.
 
+## Contact
+For questions or support, reach out to:
+- GitHub: https://github.com/harinandsindukumar/
+- Email: harinandsindukumarkg@gmail.com
+- Support: https://buymeacoffee.com/harinandsindukumar
+
 ## Development Setup
 
 1. Fork and clone the repository

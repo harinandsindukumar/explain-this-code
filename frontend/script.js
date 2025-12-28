@@ -14,7 +14,7 @@ async function explainCode() {
   output.style.display = "block";
 
   try {
-    const response = await fetch("http://localhost:3000/explain", {
+    const response = await fetch("https://explain-this-code.onrender.com/explain", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ code, language })

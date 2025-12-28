@@ -96,3 +96,21 @@ pre {
   color: #2e7d32;
   margin-bottom: 5px;
 }
+
+footer {
+  margin-top: 30px;
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid #a5d6a7;
+  color: #388e3c;
+}
+
+footer a {
+  color: #2e7d32;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #1b5e20;
+}
