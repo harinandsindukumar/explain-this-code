@@ -28,7 +28,10 @@ You are a patient programming teacher. Explain the following ${language} code fo
             {
               parts: [{ text: prompt }]
             }
-          ]
+          ],
+          generationConfig: {
+            responseMimeType: "application/json"
+          }
         })
       }
     );
