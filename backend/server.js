@@ -50,7 +50,28 @@ ${code}
     );
 
     const data = await response.json();
-    res.json(data);
+    
+    // Extract the text content from the API response
+    if (data.candidates && data.candidates[0] && data.candidates[0].content && 
+        data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
+      
+      let textContent = data.candidates[0].content.parts[0].text;
+      
+      // Remove markdown code block markers if present
+      textContent = textContent.replace(/```json\n?/g, '').replace(/```$/g, '').trim();
+      
+      try {
+        // Try to parse the extracted text as JSON
+        const parsedContent = JSON.parse(textContent);
+        res.json(parsedContent);
+      } catch (e) {
+        // If parsing fails, return the original response
+        res.json(data);
+      }
+    } else {
+      // If the expected structure isn't found, return the original response
+      res.json(data);
+    }
   } catch (error) {
     console.error("API Error:", error);
     res.status(500).json({ error: "Failed to get explanation from AI" });
